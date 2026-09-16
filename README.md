@@ -48,12 +48,12 @@ FraudShield is a community-driven platform for fighting phone scams. Instead of 
 
 ## ✨ Features
 
-- 🔐 **User accounts** — signup/login with hashed passwords (Flask-Bcrypt)
-- 📝 **Report scam numbers** — tag a number with a scam category and description
-- 🔎 **Search by number** — instantly see how many times a number has been reported, broken down by category
-- 🚦 **Automatic risk rating** — numbers are labeled `NO REPORTS`, `LOW RISK`, `MODERATE RISK`, or `HIGH RISK` based on report volume
-- 📊 **Analytics dashboard** — platform-wide stats across all scam categories
-- 🚫 **Duplicate protection** — the same user can't spam-report the same number/category twice
+- 🔐 **User accounts** | signup/login with hashed passwords (Flask-Bcrypt)
+- 📝 **Report scam numbers** | tag a number with a scam category and description
+- 🔎 **Search by number** | instantly see how many times a number has been reported, broken down by category
+- 🚦 **Automatic risk rating** | numbers are labeled `NO REPORTS`, `LOW RISK`, `MODERATE RISK`, or `HIGH RISK` based on report volume
+- 📊 **Analytics dashboard** | platform-wide stats across all scam categories
+- 🚫 **Duplicate protection** | the same user can't spam-report the same number/category twice
 
 ---
 
