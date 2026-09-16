@@ -1,0 +1,4 @@
+# Requires Python 3.9+
+Flask==3.0.3
+pymongo==4.8.0
+Flask-Bcrypt==1.0.1
