@@ -42,7 +42,7 @@ It builds a shared database that helps people recognize and avoid scams early.
 
 ## 🧠 About
 
-FraudShield is a community-driven platform for fighting phone scams. Instead of every person discovering a scam number the hard way, FraudShield turns individual reports into a **shared, searchable database** — so the next person who gets a suspicious call can check the number first.
+FraudShield is a community-driven platform for fighting phone scams. Instead of every person discovering a scam number the hard way, FraudShield turns individual reports into a **shared, searchable database**, so the next person who gets a suspicious call can check the number first.
 
 ---
 
