@@ -191,14 +191,14 @@ Contributions are welcome!
 
 ## 📄 License
 
-This project is licensed under the **MIT License** — feel free to use and adapt it.
+This project is licensed under the **MIT License**, feel free to use and adapt it.
 _(Add a `LICENSE` file to the repo to make this official.)_
 
 ---
 
 ## 📬 Contact
 
-**Amna** — [GitHub @AmnaBibi-codes](https://github.com/AmnaBibi-codes)
+**Amna Bibi** | [GitHub @AmnaBibi-codes](https://github.com/AmnaBibi-codes)
 
 <div align="center">
 
