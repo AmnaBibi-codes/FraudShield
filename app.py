@@ -7,14 +7,14 @@ app = Flask(__name__)
 # =========================
 # SECRET KEY
 # =========================
-app.secret_key = "fraudshield_super_secure_2026"
+app.secret_key = "your-random-secret-key-here"
 
 bcrypt = Bcrypt(app)
 
 # =========================
 # MONGODB CONNECTION
 # =========================
-client = MongoClient("mongodb://localhost:27017/")
+client = MongoClient("MongoDB URL")
 
 db = client["fraudshield"]
 
