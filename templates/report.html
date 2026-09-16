@@ -1,0 +1,181 @@
+{% extends "base.html" %}
+
+{% block title %}
+Report Scam - FraudShield
+{% endblock %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+
+    <div class="col-md-8 col-lg-7">
+
+        <div class="card bg-dark border-secondary shadow-lg rounded-4 p-5">
+
+            <h2 class="text-danger fw-bold mb-3">
+                Report Scam Number
+            </h2>
+
+            <p class="text-secondary mb-4">
+                Submit scam phone numbers to help protect others.
+            </p>
+
+            {% if error %}
+
+            <div class="alert alert-danger text-center">
+                {{ error }}
+            </div>
+
+            {% endif %}
+
+            <form method="POST">
+
+                <div class="mb-4">
+
+                    <label class="form-label text-light">
+                        Phone Number
+                    </label>
+<input
+    type="tel"
+    name="phone"
+    class="form-control bg-secondary text-white border-0"
+    placeholder="e.g. 03001234567"
+    pattern="[0-9]{11}"
+    maxlength="11"
+    required
+>
+
+<style>
+textarea::placeholder,
+input::placeholder {
+    color: #d3d3d3 !important;  /* same light gray for both */
+    opacity: 1;
+}
+</style>
+                </div>
+
+                <div class="mb-4">
+
+                    <label class="form-label text-light">
+                        Scam Category
+                    </label>
+
+                    <select
+                        name="category"
+                        class="form-select bg-secondary text-white border-0"
+                        required
+                    >
+
+                        <option value="">
+                            Select Category
+                        </option>
+
+                        <option>
+                            OTP Scam
+                        </option>
+
+                        <option>
+                            Prize Scam
+                        </option>
+
+                        <option>
+                            Investment Scam
+                        </option>
+
+                        <option>
+                            Job Scam
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="mb-4">
+
+                    <label class="form-label text-light">
+                        Description
+                    </label>
+
+<textarea
+    name="description"
+    rows="5"
+    class="form-control bg-secondary text-white border-0"
+    placeholder="Describe the scam activity..."
+    required
+></textarea>
+
+<style>
+textarea[name="description"]::placeholder {
+    color: #d3d3d3 !important;  /* light gray */
+    opacity: 1;
+}
+</style>
+
+                </div>
+
+                <button
+                    type="submit"
+                    class="btn btn-danger w-100 fw-bold py-2 rounded-pill"
+                >
+                    Submit Report
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% if success %}
+
+<div class="modal fade show d-block"
+     tabindex="-1"
+     style="background:rgba(0,0,0,0.7);">
+
+    <div class="modal-dialog modal-dialog-centered">
+
+        <div class="modal-content bg-dark text-white border-secondary rounded-4">
+
+            <div class="modal-header border-0">
+
+                <h5 class="modal-title text-success fw-bold">
+                    Success
+                </h5>
+
+            </div>
+
+            <div class="modal-body">
+
+                {{ success }}
+
+            </div>
+
+            <div class="modal-footer border-0">
+
+                <a
+                    href="/"
+                    class="btn btn-secondary rounded-pill px-4"
+                >
+                    Home
+                </a>
+
+                <a
+                    href="/report"
+                    class="btn btn-danger rounded-pill px-4"
+                >
+                    Report Another
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endif %}
+
+{% endblock %}

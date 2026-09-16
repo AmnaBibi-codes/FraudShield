@@ -1,0 +1,195 @@
+{% extends "base.html" %}
+
+{% block title %}
+FraudShield
+{% endblock %}
+
+{% block content %}
+
+<!-- HERO SECTION -->
+
+<div class="py-5 text-center">
+
+    <h1 class="display-2 fw-bold text-danger">
+        FraudShield
+    </h1>
+
+    <p class="lead mt-4 text-light">
+        Protect yourself from scam calls, fake investments,
+        OTP frauds and online financial crimes.
+    </p>
+
+    <div class="mt-5">
+
+        <a
+            href="/report"
+            class="btn btn-danger btn-lg m-2 px-4"
+        >
+            Report Scam
+        </a>
+
+        <a
+            href="/reports"
+            class="btn btn-warning btn-lg m-2 px-4"
+        >
+            Search Number
+        </a>
+
+        <a
+            href="/analytics"
+            class="btn btn-info btn-lg m-2 px-4"
+        >
+            Analytics
+        </a>
+
+    </div>
+
+</div>
+
+<!-- STATS -->
+
+<div class="row text-center mb-5">
+
+    <div class="col-md-6 mb-4">
+
+        <div class="card bg-dark border-secondary shadow-lg rounded-4 p-4 h-100">
+
+            <h2 class="text-danger fw-bold">
+                {{ total_reports }}
+            </h2>
+
+            <p class="mb-0" style="color: #d3d3d3;">
+                Scam Reports Submitted
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-6 mb-4">
+
+        <div class="card bg-dark border-secondary shadow-lg rounded-4 p-4 h-100">
+
+            <h2 class="text-warning fw-bold">
+                {{ total_users }}
+            </h2>
+
+            <p class="mb-0" style="color: #d3d3d3;">
+                Registered Users
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ABOUT -->
+
+<div class="card bg-dark border-secondary shadow-lg rounded-4 p-5 mb-5">
+
+    <h2 class="text-danger mb-4">
+        How FraudShield Works
+    </h2>
+
+    <p class="fs-5 text-light mb-0">
+        Users can report scam phone numbers and help others
+        avoid fraud. Search any number to view scam history,
+        fraud categories and risk levels instantly.
+    </p>
+
+</div>
+
+<!-- FEATURES -->
+
+<div class="row mb-5">
+
+    <div class="col-md-4 mb-4">
+
+        <div class="card bg-dark border-secondary shadow-lg rounded-4 p-4 text-center h-100">
+
+            <h3 class="text-danger">
+                Real Reports
+            </h3>
+
+            <p class="text-light mt-3 mb-0">
+                Community submitted scam reports help warn others.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-4 mb-4">
+
+        <div class="card bg-dark border-secondary shadow-lg rounded-4 p-4 text-center h-100">
+
+            <h3 class="text-warning">
+                Risk Detection
+            </h3>
+
+            <p class="text-light mt-3 mb-0">
+                Automatically calculates scam risk levels.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-4 mb-4">
+
+        <div class="card bg-dark border-secondary shadow-lg rounded-4 p-4 text-center h-100">
+
+            <h3 class="text-info">
+                Fast Search
+            </h3>
+
+            <p class="text-light mt-3 mb-0">
+                Search any phone number instantly.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- RECENT REPORTS -->
+
+<h2 class="text-center text-danger fw-bold mb-5">
+    Latest Scam Reports
+</h2>
+
+<div class="row">
+
+    {% for report in recent_reports %}
+
+    <div class="col-lg-4 col-md-6 mb-4">
+
+        <div class="card bg-dark border-secondary shadow-lg rounded-4 h-100">
+
+            <div class="card-body">
+
+                <h5 class="text-warning fw-bold">
+                    {{ report.phone }}
+                </h5>
+
+                <h6 class="text-info mt-3">
+                    {{ report.category }}
+                </h6>
+
+                <p class="text-light mt-3 small">
+    {{ report.description[:120] }}...
+</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

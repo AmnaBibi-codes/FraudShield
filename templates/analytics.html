@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+/* Light consistent text */
+.analytics-text {
+    color: #d3d3d3 !important;
+}
+
+/* Remove any underline issues */
+h1, h2, h3, h4, h5, p {
+    text-decoration: none !important;
+}
+
+/* Fix small muted text */
+small {
+    color: #d3d3d3 !important;
+}
+</style>
+
+<h1 class="text-danger mb-4 fw-bold">
+    <i class="fa-solid fa-chart-line me-2"></i>
+    Fraud Analytics Intelligence
+</h1>
+
+<div class="row text-center mb-4 g-3">
+
+
+    <div class="col-md-3">
+        <div class="card bg-dark border border-warning p-3 shadow-sm">
+            <h2 class="text-warning fw-bold">{{ otp }}</h2>
+            <p class="small mb-0" style="color:#d3d3d3;">
+                OTP Scams Logged
+            </p>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card bg-dark border border-success p-3 shadow-sm">
+            <h2 class="text-success fw-bold">{{ prize }}</h2>
+            <p class="small mb-0" style="color:#d3d3d3;">
+                Prize Scams Caught
+            </p>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card bg-dark border border-info p-3 shadow-sm">
+            <h2 class="text-info fw-bold">{{ investment }}</h2>
+            <p class="small mb-0" style="color:#d3d3d3;">
+                Investment Scams 
+            </p>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card bg-dark border border-info p-3 shadow-sm">
+            <h2 class="text-info fw-bold">{{ job }}</h2>
+            <p class="small mb-0" style="color:#d3d3d3;">
+                Job Scams Deflected
+            </p>
+        </div>
+    </div>
+
+</div>
+
+<div class="row">
+
+    <div class="col-md-8 mb-4">
+        <div class="card bg-black p-4 border border-secondary h-100 shadow">
+            <h5 class="text-white mb-3 fw-bold">
+                <i class="fa-solid fa-chart-bar text-danger me-2"></i>
+                Distribution Analytics
+            </h5>
+            <canvas id="barChart" style="max-height: 380px;"></canvas>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card bg-black p-4 border border-secondary h-100 shadow">
+            <h5 class="text-white mb-3 fw-bold">
+                <i class="fa-solid fa-chart-pie text-warning me-2"></i>
+                Threat Composition
+            </h5>
+            <canvas id="pieChart" style="max-height: 380px;"></canvas>
+        </div>
+    </div>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const labels = ['OTP Scam', 'Prize Scam', 'Investment Scam', 'Job Scam'];
+    const dataValues = [Number("{{ otp }}"), Number("{{ prize }}"), Number("{{ investment }}"), Number("{{ job }}")];
+
+    const colorPalette = [
+        'rgba(239, 68, 68, 0.85)',
+        'rgba(245, 158, 11, 0.85)',
+        'rgba(59, 130, 246, 0.85)',
+        'rgba(16, 185, 129, 0.85)'
+    ];
+
+    const borderPalette = ['#ef4444', '#f59e0b', '#3b82f6', '#10b981'];
+
+    new Chart(document.getElementById('barChart'), {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Threat Metric Volumes',
+                data: dataValues,
+                backgroundColor: colorPalette,
+                borderColor: borderPalette,
+                borderWidth: 2,
+                borderRadius: 8
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: { legend: { display: false } },
+            scales: {
+                y: { grid: { color: '#374151' }, ticks: { color: '#9ca3af' }, beginAtZero: true },
+                x: { grid: { display: false }, ticks: { color: '#9ca3af' } }
+            }
+        }
+    });
+
+    new Chart(document.getElementById('pieChart'), {
+        type: 'doughnut',
+        data: {
+            labels: labels,
+            datasets: [{
+                data: dataValues,
+                backgroundColor: colorPalette,
+                borderColor: '#111827',
+                borderWidth: 3
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { position: 'bottom', labels: { color: '#9ca3af', font: { size: 11 } } }
+            }
+        }
+    });
+});
+</script>
+
+{% endblock %}
